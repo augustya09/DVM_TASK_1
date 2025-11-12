@@ -1,0 +1,10 @@
+STATION,LINE,NEXT_STATION
+Noida Sector 62,Blue,Botanical Garden
+Botanical Garden,Blue,Yamuna Bank
+Yamuna Bank,Blue,Mandi House
+Mandi House,Blue,Rajiv Chowk
+Rajiv Chowk,Blue,Karol Bagh
+Rajiv Chowk,Red,Kashmere Gate
+Kashmere Gate,Red,Central Secretariat
+Central Secretariat,Yellow,AIIMS
+AIIMS,Yellow,Hauz Khas
