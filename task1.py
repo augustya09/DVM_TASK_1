@@ -3,7 +3,7 @@ from collections import deque
 
 stations_csv = "/content/sample_data/metro_stations_multiline.csv"
 
-class Station:
+class station:
     # Reading the CSV file & storing network connections
     def __init__(self):
         self.connections = {}  # {station: [('n1', 'l1'), (n2, 'l2'), ...]}
@@ -31,7 +31,7 @@ class Station:
         for i in self.connections:
             print(i)
 
-class Metro:
+class metro:
     def __init__(self, connections):
         self.metro = connections  # Stores the metro map
 
@@ -86,7 +86,7 @@ class Metro:
 
         print("Arrive at", path[-1], "on the", current_line, "line")
 
-class Ticket:
+class ticket:
     def __init__(self, station_data):
         self.stations = list(station_data.keys())
         self.metro = Metro(station_data)
@@ -102,10 +102,10 @@ class Ticket:
         path = self.metro.shortest_path(start, end)
         self.metro.transfer_instructions(path)
 
-# Main driver code
-s = Station()
+# code initialzing
+s = station()
 s.csvreader()
 s.show_stations()
 
-t = Ticket(s.connections)
+t = ticket(s.connections)
 t.book_ticket()
