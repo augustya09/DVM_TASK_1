@@ -4,12 +4,12 @@ from collections import deque
 stations_csv = "/content/sample_data/metro_stations_multiline.csv"
 
 class station:
-    # Reading the CSV file & storing network connections
+    # reading the CSV file & storing network connections
     def __init__(self):
         self.connections = {}  # {station: [('n1', 'l1'), (n2, 'l2'), ...]}
 
     def csvreader(self):
-        # Fills self.connections dictionary
+        # fills self.connections dictionary
         with open(stations_csv, "r") as file:
             reader = csv.DictReader(file)
             for i in reader:
@@ -33,7 +33,7 @@ class station:
 
 class metro:
     def __init__(self, connections):
-        self.metro = connections  # Stores the metro map
+        self.metro = connections  # stores the metro map
 
     def shortest_path(self, start, end):
         if start not in self.metro or end not in self.metro:
@@ -46,14 +46,17 @@ class metro:
         while queue:
             path = queue.popleft()
             current = path[-1]
+            
             if current == end:
                 return path
+                
             if current not in visited:
                 for neighbor, _ in self.metro[current]:
                     new_path = list(path)
                     new_path.append(neighbor)
                     queue.append(new_path)
                 visited.add(current)
+                
         return None
 
     def get_line(self, station1, station2):
@@ -69,8 +72,10 @@ class metro:
 
         print("STATIONS IN THE WAY:")
         print(" _ ".join(path))
+        
         total_stations = len(path) - 1
         fare = total_stations * 100
+        
         print("The total number of stations:", total_stations)
         print("The fare is:", fare, "rupees")
         print('DETAILED INSTRUCTIONS:')
